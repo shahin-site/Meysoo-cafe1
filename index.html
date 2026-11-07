@@ -1,0 +1,380 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#211811">
+<title>MEYSO | کافه میسو</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    background: #211811;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+.container {
+    width: 100%;
+    max-width: 430px;
+    background: #30231b;
+    border: 1px solid rgba(218,176,117,.2);
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 25px 70px rgba(0,0,0,.4);
+}
+
+.header {
+    text-align: center;
+    padding: 42px 20px 30px;
+    background:
+      radial-gradient(circle at top, #725038 0%, #30231b 72%);
+}
+
+.logo {
+    width: 85px;
+    height: 85px;
+    margin: auto;
+    border: 1px solid #cba477;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    color: #e6c49a;
+    margin-bottom: 17px;
+}
+
+.brand {
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: 5px;
+    color: #f1d6b1;
+    direction: ltr;
+}
+
+.subtitle {
+    color: #c7a98a;
+    font-size: 13px;
+    margin-top: 7px;
+}
+
+.divider {
+    width: 55px;
+    height: 2px;
+    background: #c49a6c;
+    margin: 20px auto 0;
+}
+
+.content {
+    padding: 25px;
+}
+
+.section-title {
+    color: #e9c99f;
+    font-size: 15px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.card-box {
+    background: linear-gradient(135deg, #e0c19b, #b78c60);
+    border-radius: 19px;
+    padding: 23px 18px;
+    color: #302017;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-box::after {
+    content: "MEYSO";
+    position: absolute;
+    left: -5px;
+    bottom: -15px;
+    font-size: 50px;
+    font-weight: 800;
+    opacity: .07;
+    direction: ltr;
+}
+
+.card-label {
+    font-size: 12px;
+    opacity: .8;
+}
+
+.card-number {
+    direction: ltr;
+    text-align: center;
+    font-size: 23px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin: 17px 0;
+    white-space: nowrap;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    position: relative;
+    z-index: 1;
+}
+
+.owner {
+    font-weight: 700;
+}
+
+.copy-btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 14px;
+    border: 1px solid #c9a47d;
+    border-radius: 13px;
+    background: transparent;
+    color: #e9c99f;
+    font-family: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.copy-btn:hover {
+    background: #c9a47d;
+    color: #24180f;
+}
+
+.location-box {
+    margin-top: 27px;
+    padding: 19px;
+    border: 1px solid rgba(218,176,117,.2);
+    border-radius: 17px;
+    background: rgba(255,255,255,.025);
+}
+
+.location-title {
+    font-size: 15px;
+    color: #e9c99f;
+    margin-bottom: 8px;
+}
+
+.location-desc {
+    font-size: 12px;
+    color: #bda995;
+    line-height: 2;
+    margin-bottom: 15px;
+}
+
+.map-btn {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    padding: 13px;
+    border-radius: 12px;
+    background: #c49a6c;
+    color: #25180f;
+    font-size: 14px;
+    font-weight: 700;
+    transition: .3s;
+}
+
+.map-btn:hover {
+    background: #e5c49c;
+    transform: translateY(-2px);
+}
+
+.footer {
+    text-align: center;
+    padding: 18px;
+    border-top: 1px solid rgba(218,176,117,.12);
+    color: #9c8068;
+    font-size: 11px;
+}
+
+.toast {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: #d7bd98;
+    color: #24180f;
+    padding: 12px 22px;
+    border-radius: 30px;
+    font-size: 13px;
+    transition: .3s;
+    opacity: 0;
+    white-space: nowrap;
+}
+
+.toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+@media(max-width:380px) {
+    .card-number {
+        font-size: 19px;
+    }
+    .content {
+        padding: 18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <header class="header">
+
+        <div class="logo">☕</div>
+
+        <div class="brand">MEYSO</div>
+
+        <div class="subtitle">
+            لحظاتی برای آرامش، طعمی برای خاطره
+        </div>
+
+        <div class="divider"></div>
+
+    </header>
+
+    <main class="content">
+
+        <div class="section-title">
+            💳 اطلاعات پرداخت
+        </div>
+
+        <div class="card-box">
+
+            <div class="card-label">
+                شماره کارت بانکی
+            </div>
+
+            <div class="card-number" id="cardNumber">
+                6219 8613 0652 3407
+            </div>
+
+            <div class="card-footer">
+
+                <span class="owner">
+                    میثم شهابی
+                </span>
+
+                <span>
+                    صاحب حساب
+                </span>
+
+            </div>
+
+        </div>
+
+        <button class="copy-btn" onclick="copyCard()">
+            کپی شماره کارت
+            <span> 📋 </span>
+        </button>
+
+        <div class="location-box">
+
+            <div class="location-title">
+                📍 آدرس و موقعیت کافه
+            </div>
+
+            <div class="location-desc">
+                برای مشاهده موقعیت کافه MEYSO روی دکمه زیر بزنید و مسیر رسیدن به کافه را پیدا کنید.
+            </div>
+
+            <a
+              class="map-btn"
+              href="https://maps.app.goo.gl/6wSxULg12bLozCB9A"
+              target="_blank"
+              rel="noopener noreferrer">
+
+                مشاهده لوکیشن کافه ↗
+
+            </a>
+
+        </div>
+
+    </main>
+
+    <footer class="footer">
+         با عشق برای لحظات خوب شما ☕
+        <br>
+                             طراح: شاهین بخشی 
+    </footer>
+
+</div>
+
+<div class="toast" id="toast">
+    شماره کارت با موفقیت کپی شد ✓
+</div>
+
+<script>
+
+function copyCard() {
+
+    const number = "6219861306523407";
+
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(number)
+        .then(showToast)
+        .catch(fallbackCopy);
+    } else {
+        fallbackCopy();
+    }
+
+}
+
+function fallbackCopy() {
+
+    const input = document.createElement("textarea");
+
+    input.value = "6219861306523407";
+    input.style.position = "fixed";
+    input.style.opacity = "0";
+
+    document.body.appendChild(input);
+    input.select();
+
+    try {
+        document.execCommand("copy");
+        showToast();
+    } catch (e) {
+        alert("لطفاً شماره کارت را به صورت دستی کپی کنید.");
+    }
+
+    document.body.removeChild(input);
+
+}
+
+function showToast() {
+
+    const toast = document.getElementById("toast");
+
+    toast.classList.add("show");
+
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 2500);
+
+}
+
+</script>
+
+</body>
+</html>
